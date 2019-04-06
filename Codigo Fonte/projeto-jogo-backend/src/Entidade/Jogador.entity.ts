@@ -14,6 +14,9 @@ export class Jogador {
   email: string;
 
   @Column()
+  senha: string;
+
+  @Column()
   nome: string;
 
   @Column()
