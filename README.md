@@ -15,7 +15,6 @@
 -   [Link Para Acessar o documento no Google Drive.](https://docs.google.com/document/d/1HIASBU8y7NcZyRyAbQ04n_u2qyi-7H1cgTisO6TP9pY/edit?usp=sharing)
 
 ### 3. CODACY<br>
--   [![Codacy Badge](https://api.codacy.com/project/badge/Grade/36407faa2ffd417c9e52eff8d99c4a17)](https://www.codacy.com/app/CarolCebin/JogoCyberPunk?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CarolCebin/JogoCyberPunk&amp;utm_campaign=Badge_Grade)
 -   [Link Para Acessar o Dashboard.](https://app.codacy.com/project/CarolCebin/JogoCyberPunk/dashboard?bid=12025698)
 
 ### 4.PROJECT MODEL CANVAS (PMC)<br>
