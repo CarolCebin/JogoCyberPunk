@@ -8,9 +8,6 @@ export class Jogador {
   id: number;
 
   @Column()
-  dtNascimento: Date;
-
-  @Column()
   email: string;
 
   @Column()
