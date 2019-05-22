@@ -13,19 +13,20 @@ export class Personagem {
     @Column()
     moeda: number;
 
-    @Column()
+    @Column({name: "stamina_atual"})
     staminaAtual: number;
 
-    @Column()
+    @Column({name: "nivel_aventureiro"})
     nivelAventureiro: number;
 
-    @Column()
+    @Column({name: "nivel_mercante"})
     nivelMercante: number;
 
-    @Column()
+    @Column({name: "nivel_aventureiro"})
     nivelArtesao: number;
-  
+
     @OneToOne(type => Jogador, jogador => jogador.personagem)
     jogador: Jogador;
   
+
 }
