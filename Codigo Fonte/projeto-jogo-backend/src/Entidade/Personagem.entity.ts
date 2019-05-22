@@ -22,7 +22,7 @@ export class Personagem {
     @Column({name: "nivel_mercante"})
     nivelMercante: number;
 
-    @Column({name: "nivel_aventureiro"})
+    @Column({name: "nivel_artesao"})
     nivelArtesao: number;
 
     @OneToOne(type => Jogador, jogador => jogador.personagem)
