@@ -1,6 +1,7 @@
 
 import Login from "views/Login.jsx";
 
+
 const dashboardRoutes = [
 
   {
@@ -9,7 +10,8 @@ const dashboardRoutes = [
     icon: "pe-7s-news-paper",
     component: Login,
     layout: "/admin"
-  }
+  },
+
 ];
 
 export default dashboardRoutes;

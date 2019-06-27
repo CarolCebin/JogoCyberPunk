@@ -13,6 +13,7 @@ import "./assets/css/pe-icon-7-stroke.css";
 
 import AdminLayout from "layouts/Admin.jsx";
 import AdminLoginLayout from "layouts/AdminLogin.jsx";
+import AdminCadastroLayout from "layouts/AdminCadastro.jsx";
 
 
 
@@ -34,6 +35,7 @@ ReactDOM.render(
     <Switch>
       
       <Route path="/admin/login" render={props => <AdminLoginLayout {...props} />} />
+      <Route path="/admin" render={props => <AdminCadastroLayout {...props} />} />
       <Route path="/admin" render={props => <AdminLayout {...props} />} />
       
       <Redirect from="/" to="/admin/login" />

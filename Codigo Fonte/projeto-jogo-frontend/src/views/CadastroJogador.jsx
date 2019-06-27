@@ -66,7 +66,7 @@ class CadastroJogador extends Component {
                         type={type}
                         id={`custom-inline-${type}-1`}
                         onChange={this.handleChangeM}
-                      /><i size="lg" className={'fa fa-mars fa-2x'}></i>
+                      /><i size="lg" className={'fa fa-mars fa-3x'}></i>
                       <br/>
                       <Form.Check
                         checked={checkF}
@@ -76,7 +76,7 @@ class CadastroJogador extends Component {
                         type={type}
                         id={`custom-inline-${type}-2`}
                         onChange={this.handleChangeF}
-                      /><i className={'fa fa-venus fa-2x'}></i>
+                      /><i className={'fa fa-venus fa-3x'}></i>
                     </div>
                   ))}
                   {/* Até Aqui */}

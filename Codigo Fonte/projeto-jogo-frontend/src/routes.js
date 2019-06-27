@@ -1,8 +1,6 @@
 import Dashboard from "views/Dashboard.jsx";
 import UserProfile from "views/UserProfile.jsx";
 import TableList from "views/TableList.jsx";
-import CadastroDados from "views/CadastroDados.jsx";
-import CadastroJogador from "views/CadastroJogador";
 import Notifications from "views/Notifications.jsx";
 
 const dashboardRoutes = [
@@ -29,26 +27,12 @@ const dashboardRoutes = [
   },
 
   {
-    path: "/cadastroDados",
-    name: "Cadastro Dados",
-    icon: "pe-7s-science",
-    component: CadastroDados,
-    layout: "/admin"
-  },
-  {
-    path: "/cadastroJogador",
-    name: "Cadastro Jogador",
-    icon: "pe-7s-map-marker",
-    component: CadastroJogador,
-    layout: "/admin"
-  },
-  {
     path: "/notifications",
     name: "Notifications",
     icon: "pe-7s-bell",
     component: Notifications,
     layout: "/admin"
-  },
+  }
 ];
 
 export default dashboardRoutes;

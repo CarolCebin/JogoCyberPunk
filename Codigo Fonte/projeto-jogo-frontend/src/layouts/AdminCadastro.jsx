@@ -8,11 +8,12 @@ import Footer from "components/Footer/Footer";
 
 import image from "assets/img/sidebar-3.jpg";
 import background from '../assets/img/background.jpg'
+import { style } from "variables/Variables.jsx";
 
-import routes from "routeLogin.js";
+import routes from "routeCadastro.js";
 
 
-class AdminLogin extends Component {
+class AdminCadastro extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -74,4 +75,4 @@ class AdminLogin extends Component {
   }
 }
 
-export default AdminLogin;
+export default AdminCadastro;
