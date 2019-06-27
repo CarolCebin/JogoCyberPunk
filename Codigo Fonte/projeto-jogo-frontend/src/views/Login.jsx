@@ -25,7 +25,7 @@ class Login extends Component {
             </Button>           
             </NavLink>
             
-            <NavLink to={"/admin/cadastroDados"}>
+            <NavLink to={"/admin/cadastro/cadastroDados"}>
             <Button className="buttonCadastro" size="lg" variant="outline-light">
               Cadastrar
             </Button>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Container, Form, Col, Button, Row } from "react-bootstrap";
 
+import { NavLink } from "react-router-dom";
+
 
 class CadastroJogador extends Component {
   constructor(props){
@@ -47,7 +49,7 @@ class CadastroJogador extends Component {
             <Form.Row>
               <Col md={1}>Nickname</Col>
               <Col md={{ span: 5, offset: 2 }}>
-                <Form.Control type="Login" placeholder="Login" />
+                <Form.Control type="Login" placeholder="Nickname" />
               </Col>
             </Form.Row>
             <br />
@@ -86,9 +88,12 @@ class CadastroJogador extends Component {
             </Form.Row>
           <br />
           <Col md={{ offset: 9 }}>
+            
+          <NavLink to={"/admin/login"}>
             <Button variant="primary" type="submit">
               Cadastrar
             </Button>
+          </NavLink>
           </Col>
           </Form>
 

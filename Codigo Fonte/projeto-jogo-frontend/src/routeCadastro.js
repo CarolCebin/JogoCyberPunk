@@ -9,14 +9,14 @@ const dashboardRoutes = [
     name: "Cadastro Dados",
     icon: "pe-7s-science",
     component: CadastroDados,
-    layout: "/admin"
+    layout: "/admin/cadastro"
   },
   {
     path: "/cadastroJogador",
     name: "Cadastro Jogador",
     icon: "pe-7s-map-marker",
     component: CadastroJogador,
-    layout: "/admin"
+    layout: "/admin/cadastro"
   }
 ];
 

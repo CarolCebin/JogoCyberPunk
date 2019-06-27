@@ -8,7 +8,6 @@ import Footer from "components/Footer/Footer";
 
 import image from "assets/img/sidebar-3.jpg";
 import background from '../assets/img/background.jpg'
-import { style } from "variables/Variables.jsx";
 
 import routes from "routeCadastro.js";
 
@@ -27,9 +26,12 @@ class AdminCadastro extends Component {
   
   getRoutes = routes => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      console.log(prop)
+      
+      if (prop.layout === "/admin/cadastro") {
         return (
           <Route
+          
             path={prop.layout + prop.path}
             render={props => (
               <prop.component
