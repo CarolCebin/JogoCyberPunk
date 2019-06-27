@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import { Navbar,Button,FormControl,Form, Nav} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import routes from '../../routes'
 
 class AdminNavbarLinks extends Component {
   render() {
-    const rotas = routes.map((prop, key) => {
-      
-      return prop.name
-    })
-    console.log(this.props)
     
     return (
       <div>

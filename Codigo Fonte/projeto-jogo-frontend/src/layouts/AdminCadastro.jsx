@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import NotificationSystem from "react-notification-system";
 import Image from 'react-bootstrap/Image'
 
 import AdminNavbar from "components/Navbars/AdminNavbarLogin";
@@ -26,7 +25,6 @@ class AdminCadastro extends Component {
   
   getRoutes = routes => {
     return routes.map((prop, key) => {
-      console.log(prop)
       
       if (prop.layout === "/admin/cadastro") {
         return (

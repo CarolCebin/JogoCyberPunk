@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Form, Col, Button, Row } from "react-bootstrap";
+import { Container, Form, Col, Button } from "react-bootstrap";
 
 import { NavLink } from "react-router-dom";
 
@@ -10,7 +10,7 @@ class CadastroJogador extends Component {
     this.state = {
       checkboxCheckedM:true,
       checkboxCheckedF:false,
-      genero:"M"
+      genero:true
     }
     this.handleChangeF = this.handleChangeF.bind(this)
     this.handleChangeM = this.handleChangeM.bind(this)
@@ -21,7 +21,7 @@ class CadastroJogador extends Component {
     this.setState({
       checkboxCheckedM:true,
       checkboxCheckedF:false,
-      genero:"M"
+      genero:true
 
     })
   }
@@ -29,7 +29,7 @@ class CadastroJogador extends Component {
     this.setState({
       checkboxCheckedF:true,
       checkboxCheckedM:false,
-      genero:"F"
+      genero:false
 
     })
   }

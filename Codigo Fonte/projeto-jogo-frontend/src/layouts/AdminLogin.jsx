@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import NotificationSystem from "react-notification-system";
 import Image from 'react-bootstrap/Image'
 
 import AdminNavbar from "components/Navbars/AdminNavbarLogin";
@@ -22,8 +21,11 @@ class AdminLogin extends Component {
       hasImage: true,
       fixedClasses: "dropdown show-dropdown open"
     };
+
+
   }
   
+
   getRoutes = routes => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
@@ -56,11 +58,11 @@ class AdminLogin extends Component {
     }
     return "Brand";
   };
-  
+
   render() {
     return (
-      <div> 
-      <Image src={background}/>
+      <div>
+        <Image src={background} />
         <div id="main-panel" className="main-panel2" ref="mainPanel">
           <AdminNavbar className="login-navbar"
             {...this.props}
