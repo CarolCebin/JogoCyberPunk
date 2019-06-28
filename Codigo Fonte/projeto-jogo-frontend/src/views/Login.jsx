@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Button, Form, Nav,Spinner } from "react-bootstrap";
+import { Container, Button, Form, Nav,Spinner,Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import firebase from 'firebase';
@@ -13,6 +13,7 @@ class Login extends Component {
       email: '',
       password: '',
       isLoading:false,
+      message:'',
     }
     this.onChangeInput = this.onChangeInput.bind(this)
   }
@@ -24,17 +25,39 @@ class Login extends Component {
 
 
   tryLogin() {
-    this.setState({isLoading:true})
+    this.setState({isLoading:true,message:''})
     const { email, password } = this.state
     firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => (
-        console.log('usuario autenticado', user)
+        this.setState({message:'Sucesso!'})
       ))
       .catch(error => {
+        this.setState({message:error.code})
         console.log(error)
       })
       .then(()=>this.setState({isLoading:false}))
+  }
+
+
+  getMessageByErrorCode(errorCode){
+    switch(errorCode){
+      case 'auth/wrong-password':
+        return 'Senha incorreta'
+      case 'auth/user-not-found':
+        return 'Usuário não encontrado'
+      default:
+        return 'Erro desconhecido'
+    }
+  }
+
+  renderMessage(){
+    const {message} = this.state
+    if(!message){
+      return null
+    }
+    return {message}
+
   }
 
   loginButton() {
@@ -50,41 +73,48 @@ class Login extends Component {
         size="lg"
         variant="outline-light"
         onClick={() => this.tryLogin()}>
-        Enviar
+        Entrar
       </Button>
     )
   }
 
   render() {
-    const { email, password } = this.state
+    const { email, password,userCerto } = this.state
     return (
       <div className="content">
         <Container fluid>
           <Form>
             <Form.Group>
               <Form.Label></Form.Label>
+              <Col md={{ span: 8, offset: 2 }}>
               <Form.Control
                 type="email"
                 placeholder="Usuário/E-mail do Jogo"
                 value={email}
                 onChange={value => this.onChangeInput('email', value)}
               />
+              </Col>
             </Form.Group>
 
             <Form.Group>
               <Form.Label></Form.Label>
+              <Col md={{ span: 8, offset: 2 }}>
               <Form.Control
                 type="password"
                 placeholder="Senha"
                 value={password}
                 onChange={value => this.onChangeInput('password', value)} />
+              </Col>
             </Form.Group>
-            <Nav className="ml-auto">
+            <br/>
+            <Nav>
+            <Col md={{ offset: 2 }}>
               <NavLink
                 to={"/admin/telaInicial"}>
                 {this.loginButton()}
               </NavLink>
-
+            </Col>
+            <Col >
               <NavLink to={"/admin/cadastro/cadastroDados"}>
                 <Button
                   className="buttonCadastro"
@@ -93,6 +123,7 @@ class Login extends Component {
                 >Cadastrar
                 </Button>
               </NavLink>
+            </Col>
             </Nav>
           </Form>
         </Container>

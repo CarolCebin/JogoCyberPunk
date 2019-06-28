@@ -43,23 +43,25 @@ class CadastroJogador extends Component {
       <div className="content">
         <Container fluid>
           <Form>
-            <Form.Label>Dados Jogador</Form.Label>
+            <Form.Label><p className="corBranca">Dados Jogador</p></Form.Label>
             <br />
             <br />
             <Form.Row>
-              <Col md={1}>Nickname</Col>
-              <Col md={{ span: 5, offset: 2 }}>
+              <Col md={1}><p className="corBranca">Nickname</p></Col>
+              <Col md={{ span: 6, offset: 2 }}>
                 <Form.Control type="Login" placeholder="Nickname" />
               </Col>
             </Form.Row>
             <br />
             <Form.Row>
-              <Col md={1}>Gênero</Col>
-              <Col md={{ span: 5, offset: 2 }}>
+              <Col md={1}><p className="corBranca">Gênero</p></Col>
+              <Col md={{ span: 4, offset: 2 }}>
                 <Form>
                   {/*Peguei Código +- Pronto */}
                   {['checkbox'].map(type => (
-                    <div key={`custom-inline-${type}`} className="mb-3">                      
+                    <div key={`custom-inline-${type}`} className="mb-3">
+                      <Form.Row> 
+                      <Col md={{ span: 4, offset: 2 }}>                    
                       <Form.Check
                         checked={checkM}
                         custom
@@ -67,9 +69,12 @@ class CadastroJogador extends Component {
                         label
                         type={type}
                         id={`custom-inline-${type}-1`}
-                        onChange={this.handleChangeM}
-                      /><i size="lg" className={'fa fa-mars fa-3x'}></i>
+                        onChange={this.handleChangeM}/>                      
+                      <i size="lg" className={'fa fa-mars fa-3x'} ></i>
+                      </Col>
+                                           
                       <br/>
+                      <Col md={{ span: 4, offset: 2 }}>
                       <Form.Check
                         checked={checkF}
                         custom
@@ -79,6 +84,16 @@ class CadastroJogador extends Component {
                         id={`custom-inline-${type}-2`}
                         onChange={this.handleChangeF}
                       /><i className={'fa fa-venus fa-3x'}></i>
+                      </Col>
+                    </Form.Row>
+                    <Form.Row>
+                    <Col md={{ span: 1, offset: 3 }}>
+                    <p className="corBranca">Masculino</p>
+                    </Col>
+                    <Col md={{ span: 1, offset: 5 }}>
+                    <p className="corBranca">Feminino</p>
+                    </Col>
+                    </Form.Row>
                     </div>
                   ))}
                   {/* Até Aqui */}

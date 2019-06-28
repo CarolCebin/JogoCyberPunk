@@ -10,13 +10,13 @@ class CadastroDados extends Component {
       <div className="content">
         <Container fluid>
           <Form>
-            <Form.Label>Dados Pessoais</Form.Label>
+            <Form.Label><p className="corBranca">Dados Pessoais</p></Form.Label>
             <br />
             <br />
             <Form.Group>
             <Form.Row>
-                <Col md={1}>Login</Col>
-                <Col md={{ span: 5, offset: 2 }}>
+                <Col md={1}><p className="corBranca">Login</p></Col>
+                <Col md={{ span: 6, offset: 2 }}>
                 <Form.Control placeholder="Login" />
                 </Col>
             </Form.Row>
@@ -25,8 +25,8 @@ class CadastroDados extends Component {
             <br/>
             <Form.Group>
             <Form.Row>
-                <Col md={1}>Senha</Col>
-                <Col md={{ span: 5, offset: 2 }}>
+                <Col md={1}><p className="corBranca">Senha</p></Col>
+                <Col md={{ span: 6, offset: 2 }}>
                 <Form.Control type="password" placeholder="Senha" />
                 </Col>
             </Form.Row>
@@ -34,16 +34,16 @@ class CadastroDados extends Component {
             <br/>
             <Form.Group>
             <Form.Row>
-                <Col md={1}>Email</Col>
-                <Col md={{ span: 5, offset: 2 }}>
+                <Col md={1}><p className="corBranca">Email</p></Col>
+                <Col md={{ span: 6, offset: 2 }}>
                 <Form.Control type="email" placeholder="E-mail" />
                 </Col>
             </Form.Row>
             </Form.Group>
             <br/>
             <Form.Row>
-                <Col md={1}>Nascimento</Col>
-                <Col md={{ span: 5, offset: 2 }}>
+                <Col md={1}><p className="corBranca">Nascimento</p></Col>
+                <Col md={{ span: 3, offset: 2 }}>
                 <Form.Control type="date" placeholder="Nascimento" />
                 </Col>
             </Form.Row>

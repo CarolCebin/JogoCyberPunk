@@ -6,8 +6,7 @@ import AdminNavbar from "components/Navbars/AdminNavbarLogin";
 import Footer from "components/Footer/Footer";
 
 import image from "assets/img/sidebar-3.jpg";
-import background from '../assets/img/background.jpg'
-
+import background from '../assets/img/fundo2.jpg'
 import routes from "routeLogin.js";
 
 
@@ -62,7 +61,7 @@ class AdminLogin extends Component {
   render() {
     return (
       <div>
-        <Image src={background} />
+        <Image src={background} thumbnail />
         <div id="main-panel" className="main-panel2" ref="mainPanel">
           <AdminNavbar className="login-navbar"
             {...this.props}

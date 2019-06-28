@@ -265,13 +265,13 @@ body > .navbar-collapse{
     }
 }
 .main-panel2{
-    background: rgba(128, 59, 128, 0.466);
+    background-image: linear-gradient(to right, #4d0753c0,#4d075379,#4d075359,#4d075379, #4d0753c0);
     position: absolute;
-    left:20%;
-    top:25%;
+    left:30%;
+    top:15%;
     
 
-    width: 60%;
+    width: 40%;
 
     > .content{padding: 30px 15px;
         min-height: calc(100% - 123px);
