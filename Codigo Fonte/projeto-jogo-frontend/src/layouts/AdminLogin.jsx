@@ -61,7 +61,7 @@ class AdminLogin extends Component {
   render() {
     return (
       <div>
-        <Image src={background} thumbnail />
+        <Image src={background} fluid/>
         <div id="main-panel" className="main-panel2" ref="mainPanel">
           <AdminNavbar className="login-navbar"
             {...this.props}

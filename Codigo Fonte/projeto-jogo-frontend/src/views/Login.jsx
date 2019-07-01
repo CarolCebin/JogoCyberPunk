@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Button, Form, Nav,Spinner,Col } from "react-bootstrap";
+import { Container, Button, Form, Nav, Spinner, Col, Alert } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import firebase from 'firebase';
@@ -12,10 +12,12 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      isLoading:false,
-      message:'',
+      isLoading: false,
+      message: '',
+      alert:false,
     }
     this.onChangeInput = this.onChangeInput.bind(this)
+
   }
   onChangeInput(field, e) {
     this.setState({
@@ -25,23 +27,24 @@ class Login extends Component {
 
 
   tryLogin() {
-    this.setState({isLoading:true,message:''})
+    this.setState({ isLoading: true, message: '' })
     const { email, password } = this.state
     firebase.auth()
       .signInWithEmailAndPassword(email, password)
-      .then(user => (
-        this.setState({message:'Sucesso!'})
-      ))
-      .catch(error => {
-        this.setState({message:error.code})
-        console.log(error)
+      .then(user => {
+        this.props.history.push("telaInicial")
+
       })
-      .then(()=>this.setState({isLoading:false}))
+      .catch(error => {
+        this.setState({ alert:true})
+
+      })
+      .then(() => this.setState({ isLoading: false }))
   }
 
 
-  getMessageByErrorCode(errorCode){
-    switch(errorCode){
+  getMessageByErrorCode(errorCode) {
+    switch (errorCode) {
       case 'auth/wrong-password':
         return 'Senha incorreta'
       case 'auth/user-not-found':
@@ -51,21 +54,21 @@ class Login extends Component {
     }
   }
 
-  renderMessage(){
-    const {message} = this.state
-    if(!message){
+  renderMessage() {
+    const { message } = this.state
+    if (!message) {
       return null
     }
-    return {message}
+    return { message }
 
   }
 
   loginButton() {
-    
-    if(this.state.isLoading){
+
+    if (this.state.isLoading) {
       return <Button variant="outline-light">
-                <Spinner animation="border" variant="light"/>
-                Loading...
+        <Spinner animation="border" variant="light" />
+        Loading...
              </Button>
     }
     return (
@@ -79,7 +82,8 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password,userCerto } = this.state
+    const handleDismiss = () => this.setState({ alert: false });
+    const { email, password } = this.state
     return (
       <div className="content">
         <Container fluid>
@@ -87,45 +91,48 @@ class Login extends Component {
             <Form.Group>
               <Form.Label></Form.Label>
               <Col md={{ span: 8, offset: 2 }}>
-              <Form.Control
-                type="email"
-                placeholder="Usuário/E-mail do Jogo"
-                value={email}
-                onChange={value => this.onChangeInput('email', value)}
-              />
+                <Form.Control
+                  type="email"
+                  placeholder="Usuário/E-mail do Jogo"
+                  value={email}
+                  onChange={value => this.onChangeInput('email', value)}
+                />
               </Col>
             </Form.Group>
 
             <Form.Group>
               <Form.Label></Form.Label>
               <Col md={{ span: 8, offset: 2 }}>
-              <Form.Control
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={value => this.onChangeInput('password', value)} />
+                <Form.Control
+                  type="password"
+                  placeholder="Senha"
+                  value={password}
+                  onChange={value => this.onChangeInput('password', value)} />
               </Col>
             </Form.Group>
-            <br/>
+            <br />
             <Nav>
-            <Col md={{ offset: 2 }}>
-              <NavLink
-                to={"/admin/telaInicial"}>
+              <Col md={{ offset: 2 }}>
                 {this.loginButton()}
-              </NavLink>
-            </Col>
-            <Col >
-              <NavLink to={"/admin/cadastro/cadastroDados"}>
-                <Button
-                  className="buttonCadastro"
-                  size="lg"
-                  variant="outline-light"
-                >Cadastrar
+                
+              </Col>
+              <Col >
+                <NavLink to={"/admin/cadastro/cadastroDados"}>
+                  <Button
+                    className="buttonCadastro"
+                    size="lg"
+                    variant="outline-light"
+                  >Cadastrar
                 </Button>
-              </NavLink>
-            </Col>
+                </NavLink>
+              </Col>
+              
             </Nav>
           </Form>
+          <br/>
+          <Alert variant="danger" show={this.state.alert} onClose={handleDismiss} dismissible>
+            Login incorreto, tente outra vez!
+          </Alert>
         </Container>
       </div>
     );
