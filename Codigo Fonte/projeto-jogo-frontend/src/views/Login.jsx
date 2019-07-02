@@ -14,9 +14,10 @@ class Login extends Component {
       password: '',
       isLoading: false,
       message: '',
-      alert:false,
+      alert: false,
     }
     this.onChangeInput = this.onChangeInput.bind(this)
+    console.log(props)
 
   }
   onChangeInput(field, e) {
@@ -25,18 +26,34 @@ class Login extends Component {
     })
   }
 
+  tryLoginGoogle() {
+    // Using a popup.
+    var provider = new firebase.auth.GoogleAuthProvider();
+    console.log(provider)
+    provider.addScope('profile');
+    provider.addScope('email');
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+      // This gives you a Google Access Token.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      
+    });
+    console.log(this.props)
+  }
 
   tryLogin() {
     this.setState({ isLoading: true, message: '' })
+    console.log(this.props)
     const { email, password } = this.state
     firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
-        this.props.history.push("telaInicial")
-
+        console.log('logou')
+        //this.props.history.push("telaInicial")
       })
       .catch(error => {
-        this.setState({ alert:true})
+        this.setState({ alert: true })
 
       })
       .then(() => this.setState({ isLoading: false }))
@@ -114,7 +131,7 @@ class Login extends Component {
             <Nav>
               <Col md={{ offset: 2 }}>
                 {this.loginButton()}
-                
+
               </Col>
               <Col >
                 <NavLink to={"/admin/cadastro/cadastroDados"}>
@@ -126,9 +143,15 @@ class Login extends Component {
                 </Button>
                 </NavLink>
               </Col>
-              
+
             </Nav>
           </Form>
+          <br />
+          <Col md={{ offset: 2 , span:8}}>
+          <Button block variant='outline-danger' onClick={this.tryLoginGoogle}>
+            <i className={'fa fa-google fa-2x'}></i>          
+          </Button>
+          </Col>
           <br/>
           <Alert variant="danger" show={this.state.alert} onClose={handleDismiss} dismissible>
             Login incorreto, tente outra vez!

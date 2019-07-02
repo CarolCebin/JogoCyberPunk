@@ -12,7 +12,7 @@ class AdminNavbarLinks extends Component {
 
 
           <Nav className="ml-auto">
-            <NavLink to={"/admin/user"}><Button variant="secondary"><i className={'fa fa-user-o'}></i></Button></NavLink>
+            <NavLink to={"/admin/aventura"}><Button variant="secondary"><i className={'fa fa-user-o'}></i></Button></NavLink>
           </Nav>
           <NavLink to={"/admin/login"} >
             <Button

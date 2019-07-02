@@ -25,37 +25,37 @@ class Dashboard extends Component {
               <Image src={user} />
               <Col><p className='nomeUsuario'>Jin-Woo</p></Col>
             </Col>
-            <Col >
+            <Col md={{ offset: 1 }}>
               <Card bg="light" style={{ width: '90%' }}>
                 <Card.Body>
                   <Row>
 
                     <Col md={{ offset: 1 }}>
                       <Card.Title>
-                        <a className="textoIcone">Fama</a> <i className={'fa fa-star fa-2x'}></i>
+                        <p className="textoIcone">Fama  <i className={'fa fa-star fa-2x'}></i></p>
                       </Card.Title>
-                      <Col><a className="textoIcone">210</a></Col>
+                      <Col><p className="textoIcone">210</p></Col>
                     </Col>
 
                     <Col>
                       <Card.Title>
-                        <a className="textoIcone">Aventureiro</a> <i className={'fa fa-street-view fa-2x'}></i>
+                        <p className="textoIcone">Aventureiro <i className={'fa fa-street-view fa-2x'}></i></p> 
                       </Card.Title>
-                      <Col md={{ offset: 1 }}><a className="textoIcone">102</a></Col>
+                      <Col md={{ offset: 1 }}><p className="textoIcone">102</p></Col>
                     </Col>
 
                     <Col>
                       <Card.Title>
-                        <a className="textoIcone">Mercante</a> <i className={'fa fa-money fa-2x'}></i>
+                        <p className="textoIcone">Mercante <i className={'fa fa-money fa-2x'}></i></p>
                       </Card.Title>
-                      <Col md={{ offset: 1 }}><a className="textoIcone">35</a></Col>
+                      <Col md={{ offset: 1 }}><p className="textoIcone">35</p></Col>
                     </Col>
 
                     <Col>
                       <Card.Title>
-                        <a className="textoIcone">Criador</a> <i className={'fa fa-flask fa-2x'}></i>
+                        <p className="textoIcone">Criador <i className={'fa fa-flask fa-2x'}></i></p> 
                       </Card.Title>
-                      <Col md={{ offset: 1 }}><a className="textoIcone">73</a></Col>
+                      <Col md={{ offset: 1 }}><p className="textoIcone">73</p></Col>
                     </Col>
 
                   </Row>
@@ -64,7 +64,7 @@ class Dashboard extends Component {
               <br />
 
               <Card bg="light" style={{ width: '90%' }}>
-                <Card.Header><a className="textoIcone">Equipamentos</a></Card.Header>
+                <Card.Header><p className="textoIcone">Equipamentos</p></Card.Header>
                 <Card.Body>
                   <Row>
 
@@ -90,10 +90,10 @@ class Dashboard extends Component {
               <br />
 
               <Card bg="light" style={{ width: '90%' }}>
-                <Card.Header><i className={'fa fa-bitcoin fa-2x'}></i><a className="textoIcone">Dinheiro</a> </Card.Header>
+                <Card.Header><p className="textoIcone"><i className={'fa fa-bitcoin fa-2x'}></i> &nbsp;&nbsp; Dinheiro</p> </Card.Header>
                 <Card.Body>
                   <Col>
-                  <Card.Title><a className="textoIcone">123454321</a></Card.Title>
+                  <Card.Title><p className="textoIcone">123454321</p></Card.Title>
                   </Col>
                   <Card.Text>
                   </Card.Text>
