@@ -17,6 +17,7 @@ class Login extends Component {
       alert: false,
     }
     this.onChangeInput = this.onChangeInput.bind(this)
+    this.tryLoginGoogle = this.tryLoginGoogle.bind(this)
     console.log(props)
 
   }
@@ -28,18 +29,19 @@ class Login extends Component {
 
   tryLoginGoogle() {
     // Using a popup.
+    let props = this.props
     var provider = new firebase.auth.GoogleAuthProvider();
     console.log(provider)
     provider.addScope('profile');
     provider.addScope('email');
-    firebase.auth().signInWithPopup(provider).then(function (result) {
+    firebase.auth().signInWithPopup(provider).then(result => {
       // This gives you a Google Access Token.
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
-      
+      this.props.history.push("telaInicial")
     });
-    console.log(this.props)
+    
   }
 
   tryLogin() {
@@ -49,8 +51,7 @@ class Login extends Component {
     firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
-        console.log('logou')
-        //this.props.history.push("telaInicial")
+        this.props.history.push("telaInicial")
       })
       .catch(error => {
         this.setState({ alert: true })
