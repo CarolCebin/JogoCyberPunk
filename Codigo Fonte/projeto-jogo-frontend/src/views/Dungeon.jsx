@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import Todo from "../components/todo/todo"
 
-class TableList extends Component {
+class Dungeon extends Component {
   render() {
     return (
       <div>
@@ -14,4 +14,4 @@ class TableList extends Component {
   }
 }
 
-export default TableList;
+export default Dungeon;

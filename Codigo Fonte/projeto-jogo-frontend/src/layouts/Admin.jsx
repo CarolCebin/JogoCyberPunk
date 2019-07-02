@@ -22,9 +22,10 @@ class Admin extends Component {
   
   getRoutes = routes => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/admin" | prop.layout === "/admin/aventura") {
+        console.log(prop.layout)
         return (
-          <Route
+          <Route exact
             path={prop.layout + prop.path}
             render={props => (
               <prop.component
