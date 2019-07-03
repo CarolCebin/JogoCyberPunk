@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne,ManyToOne } from 'typeorm';
+import { Personagem } from './Personagem.entity';
+import { Aventura } from './Aventura.entity';
 
 
 @Entity()
@@ -31,6 +33,10 @@ export class Artefato {
   @Column()
   consumivel: boolean;
 
+  @ManyToOne(type => Personagem, personagem => personagem.artefato)
+  personagem: Personagem;
 
+  @ManyToOne(type => Aventura, aventura => aventura.artefato)
+  aventura: Aventura;
   
 }
