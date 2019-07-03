@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne , ManyToOne } from 'typeorm';
 import { ParticipacaoAventura } from './ParticipacaoAventura.entity';
+import {Artefato} from './Artefato.entity'
 
 
 @Entity()
@@ -21,9 +22,12 @@ export class Aventura {
     imagem: Blob;
 
     @Column()
-    dificuldade: BigInteger;
+    dificuldade: Number;
+
+    @OneToMany(type => Artefato, artefato => artefato.aventura)
+    artefatos: Artefato[];
   
-    @ManyToOne(type => ParticipacaoAventura, participacaoAventura => participacaoAventura.aventura)
+    @OneToMany(type => ParticipacaoAventura, participacaoAventura => participacaoAventura.aventura)
     participacaoAventura: ParticipacaoAventura[];
 
 }
