@@ -29,6 +29,7 @@ class Login extends Component {
 
   tryLoginGoogle() {
     // Using a popup.
+    this.setState({ isLoading: true })
     let props = this.props
     var provider = new firebase.auth.GoogleAuthProvider();
     console.log(provider)
@@ -40,7 +41,10 @@ class Login extends Component {
       // The signed-in user info.
       var user = result.user;
       props.history.push("telaInicial")
-    });
+    })
+    .then(()=>this.setState({isLoading:false})
+
+    )
     
   }
 
@@ -79,6 +83,19 @@ class Login extends Component {
     }
     return { message }
 
+  }
+
+  buttonLoginGoogle(){
+    if (this.state.isLoading) {
+      return <Button block variant='outline-danger'>
+            <Spinner animation="border" variant="light" />
+                Loading...
+             </Button>
+    }
+    return( 
+            <Button block variant='outline-danger' onClick={this.tryLoginGoogle}>
+              <i className={'fa fa-google fa-2x'}></i>          
+            </Button>)
   }
 
   loginButton() {
@@ -134,7 +151,7 @@ class Login extends Component {
                 {this.loginButton()}
 
               </Col>
-              <Col >
+              <Col md={{ offset: 1 }} >
                 <NavLink to={"/admin/cadastro/cadastroDados"}>
                   <Button
                     className="buttonCadastro"
@@ -149,9 +166,7 @@ class Login extends Component {
           </Form>
           <br />
           <Col md={{ offset: 2 , span:8}}>
-          <Button block variant='outline-danger' onClick={this.tryLoginGoogle}>
-            <i className={'fa fa-google fa-2x'}></i>          
-          </Button>
+            {this.buttonLoginGoogle()}
           </Col>
           <br/>
           <Alert variant="danger" show={this.state.alert} onClose={handleDismiss} dismissible>

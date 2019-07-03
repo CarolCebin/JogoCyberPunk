@@ -30,6 +30,7 @@ const config = {
 }
 firebase.initializeApp(config);
 
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>

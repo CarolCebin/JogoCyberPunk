@@ -1,5 +1,5 @@
 .sidebar{
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -19,7 +19,7 @@
         z-index: 4;
         padding-bottom: 30px;
         
-        background-image: linear-gradient(to bottom, #8c8c8c,#8a6262 , #801010);
+        background-image: linear-gradient(to bottom,#2d1566fb , #602279,#602279,#2d1566fb );
     }
 
     .sidebar-background{
@@ -39,7 +39,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         position: relative;
         z-index: 4;
-        background-image: linear-gradient(to bottom, #ccc, #8c8c8c);
+        background-image: linear-gradient(to bottom, #2d1566fb , #602279, #703de7fb,rgb(143, 38, 241),rgb(143, 38, 241), #703de7fb, #602279,#2d1566fb );
         
 
         p{
@@ -246,7 +246,7 @@ body > .navbar-collapse{
 
 
 .main-panel{
-    background: rgba(88, 12, 151, 0.253);
+    background: rgba(53, 3, 94, 0.493);
     position: relative;
     float: right;
     width: $sidebar-width;
@@ -261,7 +261,7 @@ body > .navbar-collapse{
     }
 
     .navbar{
-        margin-bottom: 0;
+        margin-top: 0%;
     }
 }
 .main-panel2{
@@ -293,7 +293,7 @@ body > .navbar-collapse{
 
 .sidebar,
 .main-panel{
-    -webkit-transition-property: top,bottom;
+    -webkit-transition-property: top;
     transition-property: top,bottom;
     -webkit-transition-duration: .2s,.2s;
     transition-duration: .2s,.2s;
@@ -309,4 +309,9 @@ body > .navbar-collapse{
 .imgCarrousel{
     width:1050px;
 
+}
+
+.imgUsuario{
+    width:300px;
+    height: 350px;
 }

@@ -22,7 +22,7 @@ class Dashboard extends Component {
 
           <Row>
             <Col md={{ span:2}}>
-              <Image src={user} />
+              <Image className='imgUsuario' src={user} />
               <Col><p className='nomeUsuario'>Jin-Woo</p></Col>
             </Col>
             <Col md={{ offset: 1 }}>
