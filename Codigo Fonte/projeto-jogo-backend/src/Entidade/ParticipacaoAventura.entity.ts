@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne,ManyToOne } from 'typeorm';
 import { Aventura } from './Aventura.entity';
+import { Jogador } from './Jogador.entity';
 
 
 @Entity()
@@ -14,7 +15,11 @@ export class ParticipacaoAventura {
     @Column()
     sucesso: boolean;
 
-    @OneToMany(type => Aventura, aventura => aventura.participacaoAventura)
+    @ManyToOne(type => Aventura, aventura => aventura.participacaoAventura)
     aventura: Aventura;
+    
+    @ManyToOne(type => Jogador, jogador => jogador.participacaoAventura)
+    jogador: Jogador;
+
 
 }
