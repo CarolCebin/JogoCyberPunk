@@ -33,7 +33,7 @@ export class RealizaAventuraService {
         await this.aventuraRepository.save(aventura);
     }
 
-    calcAventura(jogador:Jogador, aventura: Aventura): boolean{
+    async calcAventura(jogador:Jogador, aventura: Aventura): boolean{
         let chance: Number;
         let random: Number;
         chance = jogador.personagem.nivelAventureiro / aventura.dificuldade;
@@ -48,7 +48,7 @@ export class RealizaAventuraService {
 
     }
 
-    gerarEspolio(aventura:Aventura): Artefatos[]
+    async gerarEspolio(aventura:Aventura): Artefatos[]{
         let lista = [];
         for (let i=0;i<aventura.artefatos.length;i++){
             let random = Math.random()*100;
@@ -60,7 +60,7 @@ export class RealizaAventuraService {
         return lista;
     }
 
-    salvaEspolio(lista:Array<Artefato>,jogador:Jogador){
+    async salvaEspolio(lista:Array<Artefato>,jogador:Jogador){
         for (let i=0;i<lista.length;i++){
             jogador.personagem.artefatos.push(lista[i])
         }
