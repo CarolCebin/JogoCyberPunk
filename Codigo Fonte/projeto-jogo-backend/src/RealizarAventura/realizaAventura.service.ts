@@ -12,7 +12,7 @@ export class RealizaAventuraService {
         private readonly aventuraRepository: Repository<Aventura>,
     ) {}
 
-    addParticipacaoAventura(jogador:Jogador,aventura:Aventura,sucess:boolean){
+    async addParticipacaoAventura(jogador:Jogador,aventura:Aventura,sucess:boolean):ParticipacaoAventura{
         const participacaoAventura = new ParticipacaoAventura();
         participacaoAventura.aventura = aventura;
         participacaoAventura.data = new Date();
@@ -23,7 +23,7 @@ export class RealizaAventuraService {
 
     }
 
-    async addAventura(nome : string, descricao: string, stamina: BigInteger, imagem: Blob, dificuldade: Number) {
+    async addAventura(nome : string, descricao: string, stamina: BigInteger, imagem: Blob, dificuldade: Number): void {
         const aventura = new Aventura();
         aventura.nome = nome;
         aventura.descricao = descricao;         
@@ -33,7 +33,7 @@ export class RealizaAventuraService {
         await this.aventuraRepository.save(aventura);
     }
 
-    calcAventura(jogador:Jogador, aventura: Aventura){
+    calcAventura(jogador:Jogador, aventura: Aventura): boolean{
         let chance: Number;
         let random: Number;
         chance = jogador.personagem.nivelAventureiro / aventura.dificuldade;
@@ -48,7 +48,7 @@ export class RealizaAventuraService {
 
     }
 
-    gerarEspolio(aventura:Aventura){
+    gerarEspolio(aventura:Aventura): Artefatos[]
         let lista = [];
         for (let i=0;i<aventura.artefatos.length;i++){
             let random = Math.random()*100;
