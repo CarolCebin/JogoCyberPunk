@@ -39,3 +39,5 @@
 -   [Link Para Acessar o diagrama no LucidChart.](https://www.lucidchart.com/invitations/accept/83013862-cb45-4944-ab88-f8aa31585b67)
 -   [Link Para Acessar a imagem no Google Drive.](https://drive.google.com/open?id=1As0HJ4hGXRhbl7QhKYligXFJdRIotROT)
  
+ ### 7. APRESENTACAO PADRÕES DE PROJETO<br>
+-   [Link Para Acessar o arquivo da apresentação em PDF.](https://drive.google.com/file/d/1c9HWXzgyPzQ04z09ejZs1CLT7epZ-Sfr/view?usp=sharing)
