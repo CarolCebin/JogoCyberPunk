@@ -6,13 +6,13 @@ import { RealizaAventuraService } from './realizaAventura.service';
 
 
 
-@Controller('cadastro')
+@Controller('realizaAventura')
 export class RealizaAventuraController{
 
     
     constructor(
-        @Inject('JogadorToken')
-        private readonly jogadorRepository: Repository<Jogador>,
+        @Inject('ParticipacaoAventuraToken')
+        private readonly participacaoAventudaRepository: Repository<ParticipacaoAvnetura>,
     ) {
     }
     
@@ -20,10 +20,15 @@ export class RealizaAventuraController{
     
     @Post()
     async cadastro(@Body('nome') nome, @Body('descricao') descricao, @Body('stamina') stamina, @Body('imagem') imagem, @Body('dificuldade') dificuldade) {
-        return await this.service.addAventura(nome, descricao, stamina, imagem, dificuldade);
+       aventura = new Aventura();
+       participcaoAventura = new ParticipacaoAventura();
+       aventura = await this.service.addAventura(nome, descricao, stamina, imagem, dificuldade);
+       participacaoAventura = await this.service.addParticipacaoAventura(jogador,aventura,sucess);
+        if participacaoAventura.sucess == true{
+             participcaoAventura.artefatos = await this.service.calculaAventura(jogador, aventura);
+             await this.service.geraEspolio(aventura));
+             await this.service.salvaEspolio(participcaoAventura.artefatos, jogador);
+        }
+      
     }
-
-
-
-
 }
