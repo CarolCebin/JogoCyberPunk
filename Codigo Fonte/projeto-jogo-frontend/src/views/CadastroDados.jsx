@@ -14,7 +14,6 @@ class CadastroDados extends Component {
       nascimento: '',
       message: '',
       imageUrl: userPadrao,
-      titulo: 'Pessoais',
       pagina: 0,
       checkM:true,
       checkF:false,
@@ -25,6 +24,7 @@ class CadastroDados extends Component {
     this.handleChangeM = this.handleChangeM.bind(this)
     this.onChangeInput = this.onChangeInput.bind(this)
   }
+
 
   handleChangeM() {
     this.setState({
@@ -71,7 +71,7 @@ class CadastroDados extends Component {
         .then(response=>{
           
           this.tryCadastro(email,nascimento,imageUrl,nickname,genero)
-            
+          console.log(response)
           return response  
         })
     }
@@ -89,24 +89,21 @@ class CadastroDados extends Component {
       genero: genero===true ? 'Masculino' : 'Feminino',
       nickname: nickname
     })
-      .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
-      });
+    .then(() => this.props.history.push("/login"))
+    .catch(()=>alert("Falha no Cadastro"))
 
   }
 
   render() {
-    const { email, password, nascimento, imageUrl,titulo,pagina,genero,nickname,checkM,checkF } = this.state
+    const { email, password, nascimento, imageUrl,pagina,genero,nickname,checkM,checkF } = this.state
       switch(pagina){
         case 0:
           return(
+            
             <div className="content">
             <Container fluid>
               <Form onSubmit={(evt) => evt.preventDefault()}>
-                <Form.Label><p className="corBranca">Dados {titulo}</p></Form.Label>
+                <Form.Label><p className="corBranca">Dados Pessoais</p></Form.Label>
                 <br />
                 <br />
                 <Form.Group>
@@ -161,6 +158,7 @@ class CadastroDados extends Component {
 
             </Container>
           </div>
+
         )
 
         case 1:
@@ -175,7 +173,7 @@ class CadastroDados extends Component {
                   <Col md={1}><p className="corBranca">Nickname</p></Col>
                   <Col md={{ span: 6, offset: 2 }}>
                     <Form.Control type="Login" placeholder="Nickname" 
-                    value={nickname} onChange={value => this.onChangeInput('nickname', value)} />/>
+                    value={nickname} onChange={value => this.onChangeInput('nickname', value)} />
                   </Col>
                 </Form.Row>
                 <br />
@@ -251,4 +249,4 @@ class CadastroDados extends Component {
 
 }
 
-export default CadastroDados;
+export default CadastroDados

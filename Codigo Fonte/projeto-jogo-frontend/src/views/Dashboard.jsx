@@ -1,21 +1,45 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import user from '../assets/img/jinWoo.jpg'
+import espada from '../assets/img/espada.png'
+import armadura from '../assets/img/armadura.png'
+import cabeca from '../assets/img/cabeca.png'
+import perna from '../assets/img/perna.png'
 
 
+import firebase from 'firebase'
 
 class Dashboard extends Component {
-  createLegend(json) {
-    var legend = [];
-    for (var i = 0; i < json["names"].length; i++) {
-      var type = "fa fa-circle text-" + json["types"][i];
-      legend.push(<i className={type} key={i} />);
-      legend.push(" ");
-      legend.push(json["names"][i]);
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: '',
+      nascimento: '',
+      message: '',
+      imageUrl: '',
+      pagina: 0,
+      checkM:true,
+      checkF:false,
+      genero:true,
+      nickname:'',
     }
-    return legend;
   }
-  render() {
+
+  preencheDados(){
+    const db = firebase.firestore()
+    db.collection("Usuarios").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          console.log(`${doc.id} => ${doc.data().email}`);
+      });
+  });
+  
+  }
+
+
+
+  render() {  
+    this.preencheDados()
     return (
       <div className="content">
         <Container fluid>
@@ -69,19 +93,19 @@ class Dashboard extends Component {
                   <Row>
 
                     <Col md={{ offset: 1 }}>
-                      Teste
+                      <Image className='imgEquipamento' src={cabeca} />
                     </Col>
 
                     <Col>
-                      Teste
+                      <Image className='imgEquipamento' src={armadura} />
                     </Col>
 
                     <Col>
-                      Teste
+                      <Image className='imgEquipamento' src={espada} />
                     </Col>
 
                     <Col>
-                      Teste
+                      <Image className='imgEquipamento' src={perna} />
                     </Col>
 
                   </Row>
@@ -109,4 +133,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default Dashboard

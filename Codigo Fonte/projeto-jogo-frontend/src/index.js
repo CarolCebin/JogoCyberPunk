@@ -5,6 +5,7 @@ import firebase from "firebase";
 
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/animate.min.css";
 import "./assets/sass/light-bootstrap-dashboard-react.scss?v=1.3.0";
@@ -32,6 +33,7 @@ firebase.initializeApp(config);
 
 
 ReactDOM.render(
+  
   <BrowserRouter>
     <Switch>
       
@@ -41,6 +43,7 @@ ReactDOM.render(
       
       <Redirect from="/" to="/admin/login" />
     </Switch>
-  </BrowserRouter>,
+  </BrowserRouter>
+  ,
   document.getElementById("root")
 );

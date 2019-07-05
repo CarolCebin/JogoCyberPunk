@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Button, Form, Nav, Spinner, Col, Alert } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
+
 import firebase from 'firebase';
 
 class Login extends Component {
@@ -32,14 +33,13 @@ class Login extends Component {
     this.setState({ isLoading: true })
     let props = this.props
     var provider = new firebase.auth.GoogleAuthProvider();
-    console.log(provider)
-    provider.addScope('profile');
-    provider.addScope('email');
+    
     firebase.auth().signInWithPopup(provider).then(result => {
       // This gives you a Google Access Token.
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
+      console.log(result)
       props.history.push("telaInicial")
     })
     .then(()=>this.setState({isLoading:false})
